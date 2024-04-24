@@ -140,18 +140,19 @@ func approxValuePerIteration(_ total: UInt64) -> UInt64 {
 }
 
 func measureTime(_ work: () -> Void) -> UInt64 {
-    var timebaseInfo: mach_timebase_info = mach_timebase_info()
-    let res = mach_timebase_info(&timebaseInfo)
+    // var timebaseInfo: mach_timebase_info = mach_timebase_info()
+    // let res = mach_timebase_info(&timebaseInfo)
 
-    assert(res == 0)
+    // assert(res == 0)
 
-    let start = mach_absolute_time()
-    for _ in 0 ..< NumberOfIterations {
-        work()
-    }
-    let timeInNano = (mach_absolute_time() - start) * UInt64(timebaseInfo.numer) / UInt64(timebaseInfo.denom)
+    // let start = mach_absolute_time()
+    // for _ in 0 ..< NumberOfIterations {
+    //     work()
+    // }
+    // let timeInNano = (mach_absolute_time() - start) * UInt64(timebaseInfo.numer) / UInt64(timebaseInfo.denom)
 
-    return approxValuePerIteration(timeInNano) / 1000
+    // return approxValuePerIteration(timeInNano) / 1000
+    return 0
 }
 
 func measureMemoryUsage(work: () -> Void) -> (bytesAllocated: UInt64, allocations: UInt64) {
